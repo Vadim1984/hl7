@@ -22,20 +22,10 @@
             <artifactId>hapi-base</artifactId>
             <version>2.2</version>
         </dependency>
-        <!-- These are structure JARs for HL7 v2.1 and 2.5.1 (as an example) -->
+        <!-- https://mvnrepository.com/artifact/ca.uhn.hapi/hapi-structures-v24 -->
         <dependency>
             <groupId>ca.uhn.hapi</groupId>
-            <artifactId>hapi-structures-v21</artifactId>
-            <version>2.5.1</version>
-        </dependency>
-        <dependency>
-            <groupId>ca.uhn.hapi</groupId>
-            <artifactId>hapi-structures-v22</artifactId>
-            <version>2.5.1</version>
-        </dependency>
-        <dependency>
-            <groupId>ca.uhn.hapi</groupId>
-            <artifactId>hapi-structures-v251</artifactId>
+            <artifactId>hapi-structures-v24</artifactId>
             <version>2.5.1</version>
         </dependency>
         <dependency>
