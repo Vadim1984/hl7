@@ -14,7 +14,7 @@ public class Hl7Client {
     private int port;
     private boolean useTls;
 
-    public void sendMessage(final String stringMessage) throws Exception {
+    public String sendMessage(final String stringMessage) throws Exception {
         HapiContext context = new DefaultHapiContext();
         Parser pipeParser = context.getPipeParser();
         Message message = pipeParser.parse(stringMessage);
@@ -25,7 +25,6 @@ public class Hl7Client {
         Initiator initiator = connection.getInitiator();
         Message response = initiator.sendAndReceive(message);
         String responseString = pipeParser.encode(response);
-        System.out.println("Received response:\n" + responseString);
 
         /*
          * MSH|^~\&|||||20070218200627.515-0500||ACK|54|P|2.2 MSA|AA|12345
@@ -48,5 +47,6 @@ public class Hl7Client {
          * See http://hl7api.sourceforge.net/xref/ca/uhn/hl7v2/examples/SendLotsOfMessages.html for an example of this.
          */
         connection.close();
+        return responseString;
     }
 }

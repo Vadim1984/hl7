@@ -18,6 +18,7 @@ public class Hl7SendMessage {
                 + "IN1||022254P|4558PD|BLUE CROSS|STREET^OTHER STREET^CITY^ST^00990||(333)333-6666||221K|LENIX|||19980515|19990515|||PATIENT01 TEST D||||||||||||||||||02LL|022LP554";
 
         Hl7Client hl7Client = new Hl7Client(serverHost, port, useTls);
-        hl7Client.sendMessage(stringMessage);
+        String responseString = hl7Client.sendMessage(stringMessage);
+        System.out.println("Received response:\n" + responseString);
     }
 }
