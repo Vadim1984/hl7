@@ -16,7 +16,7 @@ public class Main {
         HL7Service hl7Service = HL7Server.createAndStart(port, useTls);
 
 
-        // ----  CREATE AND SEND MESSAGE ------
+        // ----  CREATE AND SEND MESSAGES ------
         Hl7Client hl7Client = new Hl7Client(serverHost, port, useTls);
         String stringMessage1 = "MSH|^~\\&|HIS|RIH|EKG|EKG|199904140038||ADT^A01|12345|P|2.2\r"
                 + "PID|0001|00009874|00001122|A00977|SMITH^JOHN^M|MOM|19581119|F|NOTREAL^LINDA^M|C|564 SPRING ST^^NEEDHAM^MA^02494^US|0002|(818)565-1551|(425)828-3344|E|S|C|0000444444|252-00-4414||||SA|||SA||||NONE|V1|0001|I|D.ER^50A^M110^01|ER|P00055|11B^M011^02|070615^BATMAN^GEORGE^L|555888^NOTREAL^BOB^K^DR^MD|777889^NOTREAL^SAM^T^DR^MD^PHD|ER|D.WT^1A^M010^01|||ER|AMB|02|070615^NOTREAL^BILL^L|ER|000001916994|D||||||||||||||||GDD|WA|NORM|02|O|02|E.IN^02D^M090^01|E.IN^01D^M080^01|199904072124|199904101200|199904101200||||5555112333|||666097^NOTREAL^MANNY^P\r"
@@ -40,6 +40,9 @@ public class Main {
         String responseString2 = hl7Client.sendMessage(stringMessage2);
         System.out.println("Received response2:\n" + responseString2);
 
+
+
+        // ----  CLOSE CLIENT'S CONNECTION ------
         hl7Client.closeConnection();
 
 
