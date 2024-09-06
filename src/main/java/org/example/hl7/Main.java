@@ -1,13 +1,22 @@
 package org.example.hl7;
 
+import ca.uhn.hl7v2.app.HL7Service;
 import org.example.hl7.client.Hl7Client;
+import org.example.hl7.server.HL7Server;
 
-public class Hl7SendMessage {
+public class Main {
     public static void main(String[] args) throws Exception {
+
+        // ----  CONNECTION PROPERTIES ------
         String serverHost = "localhost";
-        int port = 1011;        // The port to listen on
-        boolean useTls = false; // Should we use TLS/SSL?
-        // Create a message to send
+        int port = 1011;
+        boolean useTls = false;
+
+        // ----  START SERVER ------
+        HL7Service hl7Service = HL7Server.createAndStart(port, useTls);
+
+
+        // ----  CREATE AND SEND MESSAGE ------
         String stringMessage = "MSH|^~\\&|HIS|RIH|EKG|EKG|199904140038||ADT^A01|12345|P|2.2\r"
                 + "PID|0001|00009874|00001122|A00977|SMITH^JOHN^M|MOM|19581119|F|NOTREAL^LINDA^M|C|564 SPRING ST^^NEEDHAM^MA^02494^US|0002|(818)565-1551|(425)828-3344|E|S|C|0000444444|252-00-4414||||SA|||SA||||NONE|V1|0001|I|D.ER^50A^M110^01|ER|P00055|11B^M011^02|070615^BATMAN^GEORGE^L|555888^NOTREAL^BOB^K^DR^MD|777889^NOTREAL^SAM^T^DR^MD^PHD|ER|D.WT^1A^M010^01|||ER|AMB|02|070615^NOTREAL^BILL^L|ER|000001916994|D||||||||||||||||GDD|WA|NORM|02|O|02|E.IN^02D^M090^01|E.IN^01D^M080^01|199904072124|199904101200|199904101200||||5555112333|||666097^NOTREAL^MANNY^P\r"
                 + "NK1|0222555|NOTREAL^JAMES^R|FA|STREET^OTHER STREET^CITY^ST^55566|(222)111-3333|(888)999-0000|||||||ORGANIZATION\r"
@@ -20,5 +29,10 @@ public class Hl7SendMessage {
         Hl7Client hl7Client = new Hl7Client(serverHost, port, useTls);
         String responseString = hl7Client.sendMessage(stringMessage);
         System.out.println("Received response:\n" + responseString);
+
+
+
+        // ----  STOP SERVER ------
+        hl7Service.stopAndWait();
     }
 }

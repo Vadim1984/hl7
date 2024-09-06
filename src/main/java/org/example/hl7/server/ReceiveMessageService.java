@@ -14,7 +14,7 @@ public class ReceiveMessageService implements ReceivingApplication {
     public Message processMessage(Message message, Map<String, Object> metaData) throws HL7Exception {
         try (DefaultHapiContext defaultHapiContext = new DefaultHapiContext()) {
             String encodedMessage = defaultHapiContext.getPipeParser().encode(message);
-            System.out.println("Received message:\n" + encodedMessage + "\n\n");
+            //System.out.println("Received message:\n" + encodedMessage + "\n\n");
             // Now generate a simple acknowledgment message and return it
             return message.generateACK();
         } catch (IOException e) {
