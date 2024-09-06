@@ -20,7 +20,7 @@ public class Main {
         Hl7Client hl7Client = new Hl7Client(serverHost, port, useTls);
 
 /*        String ackCommunication = "MSH|^~\\&|tetris infinity-2.1|Best Diagnostics|Receiver Application|Receiver Facility|20170314141221||ACK^O21^ACK|3B2EC5DE-34D3-4B82-B526-59F4B4871948|P|2.4|||NE|NE||8859/1\r"
-                + "MSA|CA|248206111";
+                + "MSA|CA|3B2EC5DE-34D3-4B82-B526-59F4B4871948";
         String responseString1 = hl7Client.sendMessage(ackCommunication);
         System.out.println("Received response2:\n" + responseString1);*/
 
