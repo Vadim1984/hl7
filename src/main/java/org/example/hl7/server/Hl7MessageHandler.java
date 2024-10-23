@@ -8,7 +8,7 @@ import ca.uhn.hl7v2.protocol.ReceivingApplication;
 import java.io.IOException;
 import java.util.Map;
 
-public class ReceiveMessageService implements ReceivingApplication {
+public class Hl7MessageHandler implements ReceivingApplication<Message> {
 
     @Override
     public Message processMessage(Message message, Map<String, Object> metaData) throws HL7Exception {

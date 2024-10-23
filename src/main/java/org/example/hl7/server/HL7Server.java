@@ -16,7 +16,7 @@ public class HL7Server {
         HapiContext context = new DefaultHapiContext();
         HL7Service server = context.newServer(port, useTls);
 
-        ReceivingApplication messageHandler = new ReceiveMessageService();
+        ReceivingApplication messageHandler = new Hl7MessageHandler();
         //single application to handle all messages
         server.registerApplication("*", "*", messageHandler);
         /*

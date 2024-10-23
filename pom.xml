@@ -20,12 +20,17 @@
         <dependency>
             <groupId>ca.uhn.hapi</groupId>
             <artifactId>hapi-base</artifactId>
-            <version>2.2</version>
+            <version>2.5</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/ca.uhn.hapi/hapi-structures-v24 -->
         <dependency>
             <groupId>ca.uhn.hapi</groupId>
             <artifactId>hapi-structures-v24</artifactId>
+            <version>2.5.1</version>
+        </dependency>
+        <dependency>
+            <groupId>ca.uhn.hapi</groupId>
+            <artifactId>hapi-structures-v23</artifactId>
             <version>2.5.1</version>
         </dependency>
         <dependency>
